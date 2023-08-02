@@ -12,7 +12,7 @@ const Stripe = require('stripe')
 const stripe = new Stripe(process.env.SRIPE_KEY)
 
 
-app.use(cors())
+app.use(cors({ origin: 'https://lambent-kringle-2c65aa.netlify.app' }));
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
