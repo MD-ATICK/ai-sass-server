@@ -34,7 +34,7 @@ const replicate = new Replicate({
 });
 
 
-app.get('/', (req, res) => res.send({ 'brower_message': 'you arenot a man?' }))
+app.get('/', (req, res) => res.send({ 'brower_message': 'you arenot a man paltu?' }))
 
 
 app.post('/checkApiLimit', async (req, res) => {
