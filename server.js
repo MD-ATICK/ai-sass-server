@@ -12,7 +12,20 @@ const Stripe = require('stripe')
 const stripe = new Stripe(process.env.SRIPE_KEY)
 
 
-app.use(cors());
+const allowedOrigins = ['https://lambent-kringle-2c65aa.netlify.app']; // Replace with the actual origin of your frontend app
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
