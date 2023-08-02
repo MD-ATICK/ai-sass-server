@@ -106,7 +106,7 @@ app.post('/created-stripe-session', async (req, res) => {
 
             const stripeSession = await stripe.billingPortal.sessions.create({
                 customer: subscriptionFind.stripeCustomerId,
-                return_url: `http://localhost:5173/settings?u_r_c=${userId}`
+                return_url: `https://lambent-kringle-2c65aa.netlify.app/settings?u_r_c=${userId}`
             })
             return res.status(201).json({ url: stripeSession.url })
 
@@ -133,8 +133,8 @@ app.post('/created-stripe-session', async (req, res) => {
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             line_items,
             metadata: { userId },
-            success_url: `http://localhost:5173/settings?u_r_c=${userId}`,
-            cancel_url: `http://localhost:5173/settings?u_r_c=${userId}`,
+            success_url: `https://lambent-kringle-2c65aa.netlify.app/settings?u_r_c=${userId}`,
+            cancel_url: `https://lambent-kringle-2c65aa.netlify.app/settings?u_r_c=${userId}`,
             payment_method_types: ["card"],
             mode: 'subscription',
             billing_address_collection: "auto",
