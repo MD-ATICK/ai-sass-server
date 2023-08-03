@@ -208,7 +208,8 @@ app.get('/isPro', async (req, res) => {
     }
 })
 
+MongooseConnect()
+
 app.listen(port, () => {
-    MongooseConnect()
     console.log(`server is running at http://localhost:${port}`)
 })
